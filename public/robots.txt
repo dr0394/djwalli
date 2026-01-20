@@ -1,0 +1,23 @@
+# robots.txt für DJ Walli - Walter Weilmünster
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.djwalli.de/sitemap.xml
+
+# Häufig gecrawlt
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow für nicht-öffentliche Bereiche
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Crawl-delay für andere Bots
+User-agent: *
+Crawl-delay: 10

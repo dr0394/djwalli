@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Hauptseite -->
+  <url>
+    <loc>https://www.djwalli.de/</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Leistungen Section -->
+  <url>
+    <loc>https://www.djwalli.de/#leistungen</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Anlässe Section -->
+  <url>
+    <loc>https://www.djwalli.de/#anlaesse</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- DJ Details Section -->
+  <url>
+    <loc>https://www.djwalli.de/#dj-service</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Event Service Section -->
+  <url>
+    <loc>https://www.djwalli.de/#event-service</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Preise Section -->
+  <url>
+    <loc>https://www.djwalli.de/#preise</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vorteile Section -->
+  <url>
+    <loc>https://www.djwalli.de/#vorteile</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Kundenmeinungen Section -->
+  <url>
+    <loc>https://www.djwalli.de/#kundenmeinungen</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FAQ Section -->
+  <url>
+    <loc>https://www.djwalli.de/#faq</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Kontakt Section -->
+  <url>
+    <loc>https://www.djwalli.de/#kontakt</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Impressum -->
+  <url>
+    <loc>https://www.djwalli.de/impressum</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Datenschutz -->
+  <url>
+    <loc>https://www.djwalli.de/datenschutz</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
