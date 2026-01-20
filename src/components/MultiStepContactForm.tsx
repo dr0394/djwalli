@@ -35,7 +35,7 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
     message: ''
   })
 
-  const totalSteps = 4
+  const totalSteps = 3
 
   const eventTypes = [
     'Hochzeit',
@@ -161,8 +161,6 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
       case 2:
         return formData.event_type
       case 3:
-        return formData.services.length > 0
-      case 4:
         return true
       default:
         return false
@@ -185,8 +183,8 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
 
   if (!isOpen) return null
 
-  const stepIcons = [User, Calendar, Music, MessageSquare]
-  const StepIcon = stepIcons[currentStep - 1] || MessageSquare
+  const stepIcons = [User, Calendar, Music]
+  const StepIcon = stepIcons[currentStep - 1] || Music
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
@@ -326,14 +324,12 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
                   {currentStep === 1 ? 'Ihre Kontaktdaten' :
                    currentStep === 2 ? 'Event Details' :
-                   currentStep === 3 ? 'Gewünschte Services' :
-                   'Zusätzliche Informationen'}
+                   'Services & Budget'}
                 </h2>
                 <p className="text-sm sm:text-base text-gray-300/80">
                   {currentStep === 1 ? 'Wie können wir Sie erreichen?' :
                    currentStep === 2 ? 'Erzählen Sie uns von Ihrem Event' :
-                   currentStep === 3 ? 'Welche Leistungen benötigen Sie?' :
-                   'Fast geschafft! Noch ein paar Details'}
+                   'Fast geschafft! Was benötigen Sie?'}
                 </p>
               </div>
 
@@ -445,47 +441,44 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
                 )}
 
                 {currentStep === 3 && (
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-3">
-                      Services auswählen *
-                    </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-                      {availableServices.map((service) => (
-                        <button
-                          key={service}
-                          type="button"
-                          onClick={() => toggleService(service)}
-                          className={`px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
-                            formData.services.includes(service)
-                              ? 'border-orange-500 bg-orange-500/20 text-white'
-                              : 'border-slate-700 bg-slate-800/30 text-gray-300 hover:border-slate-600'
-                          }`}
-                        >
-                          <div
-                            className={`w-4 h-4 sm:w-5 sm:h-5 rounded border-2 flex items-center justify-center flex-shrink-0 ${
-                              formData.services.includes(service)
-                                ? 'border-orange-500 bg-orange-500'
-                                : 'border-slate-600'
-                            }`}
-                          >
-                            {formData.services.includes(service) && (
-                              <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-                            )}
-                          </div>
-                          <span className="text-left">{service}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {currentStep === 4 && (
                   <>
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-3">
-                        Budget
+                        Services auswählen (optional)
                       </label>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                        {availableServices.map((service) => (
+                          <button
+                            key={service}
+                            type="button"
+                            onClick={() => toggleService(service)}
+                            className={`px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+                              formData.services.includes(service)
+                                ? 'border-orange-500 bg-orange-500/20 text-white'
+                                : 'border-slate-700 bg-slate-800/30 text-gray-300 hover:border-slate-600'
+                            }`}
+                          >
+                            <div
+                              className={`w-4 h-4 sm:w-5 sm:h-5 rounded border-2 flex items-center justify-center flex-shrink-0 ${
+                                formData.services.includes(service)
+                                  ? 'border-orange-500 bg-orange-500'
+                                  : 'border-slate-600'
+                              }`}
+                            >
+                              {formData.services.includes(service) && (
+                                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                              )}
+                            </div>
+                            <span className="text-left">{service}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-3">
+                        Budget (optional)
+                      </label>
+                      <div className="grid grid-cols-2 gap-2 sm:gap-3">
                         {budgetOptions.map((option) => (
                           <button
                             key={option}
@@ -504,12 +497,12 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Nachricht
+                        Nachricht (optional)
                       </label>
                       <textarea
                         value={formData.message}
                         onChange={(e) => updateFormData('message', e.target.value)}
-                        rows={4}
+                        rows={3}
                         className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors resize-none text-sm sm:text-base"
                         placeholder="Weitere Details zu Ihrer Veranstaltung..."
                       />
