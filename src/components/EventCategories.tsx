@@ -44,7 +44,7 @@ const EventCategories = ({ onOpenBooking }: EventCategoriesProps) => {
           name: 'Exklusiv',
           price: 'ab 1.075€',
           features: [
-            'DJ für 12 Stunden',
+            'DJ für 10 Stunden',
             'High-End Soundanlage',
             'Premium Lichtshow & Effekte',
             'Persönlicher Event-Planer',
