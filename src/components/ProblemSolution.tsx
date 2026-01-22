@@ -45,8 +45,7 @@ const ProblemSolution = ({ onOpenBooking }: ProblemSolutionProps) => {
               <p className="text-lg text-gray-300/90 leading-relaxed">
                 DJ WALLI liefert <strong className="text-white">professionelle Musik</strong>,
                 <strong className="text-white"> zuverlässige Technik</strong> und
-                <strong className="text-white"> perfekte Organisation</strong> –
-                inklusive optionaler Fotobox mit rotem Teppich. Alles aus einer Hand.
+                <strong className="text-white"> perfekte Organisation</strong>
               </p>
             </div>
 
