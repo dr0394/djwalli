@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { X, Check } from 'lucide-react'
 
 interface Package {
@@ -17,6 +17,21 @@ interface EventPackageModalProps {
 }
 
 const EventPackageModal = ({ isOpen, onClose, eventType, packages, onOpenBooking }: EventPackageModalProps) => {
+  useEffect(() => {
+    if (isOpen) {
+      const script = document.createElement('script')
+      script.src = 'https://api.kreativ.management/Form/GetContactFormWidget'
+      script.async = true
+      document.body.appendChild(script)
+
+      return () => {
+        if (document.body.contains(script)) {
+          document.body.removeChild(script)
+        }
+      }
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
 
   return (
@@ -110,6 +125,15 @@ const EventPackageModal = ({ isOpen, onClose, eventType, packages, onOpenBooking
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12">
+            <div
+              className="js-hm-form"
+              id="kreativmanagement"
+              data-theme="default"
+              data-form-id="6f31d760-9033-4f37-be5a-5dcce710e686"
+            />
           </div>
 
           <div className="mt-8 p-6 bg-white/5 border border-white/10 rounded-lg">
