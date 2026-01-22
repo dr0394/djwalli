@@ -20,23 +20,29 @@ const EventCategories = ({ onOpenBooking }: EventCategoriesProps) => {
           name: 'Basis',
           price: 'ab 675€',
           features: [
-            'DJ für bis zu 6 Stunden',
-            'Professionelle Soundanlage',
-            'Lichteffekte',
-            'Musikwunsch-Beratung',
-            'Standardrepertoire'
+            '6 Std. reine Musikspielzeit',
+            'Persönliches Vorgespräch (bis 30 km)',
+            'Tontechnik für bis zu 50 Gäste',
+            'Grundlicht (4er-Bar)',
+            '1 bewegter LED Effekt',
+            'Funkmikrofon inkl.',
+            'Auf- & Abbau inkl.',
+            'DJ Stand'
           ]
         },
         {
           name: 'Premium',
           price: 'ab 875€',
           features: [
-            'DJ für bis zu 8 Stunden',
-            'Premium Soundanlage',
-            'Erweiterte Lichtshow',
-            'Individuelle Musikplanung',
-            'Mikrofon für Ansprachen',
-            'Hochzeitstanz-Beratung'
+            '8 Std. reine Musikspielzeit',
+            'Persönliches Vorgespräch (bis 30 km)',
+            'Tontechnik für bis zu 80 Gäste',
+            'Grundlicht (4er-Bar)',
+            '4 Floorspots (LED-Uplight)',
+            '2 bewegte LED Effekte',
+            'Funkmikrofon inkl.',
+            'Auf- & Abbau inkl.',
+            'DJ Stand'
           ],
           popular: true
         },
@@ -114,10 +120,10 @@ const EventCategories = ({ onOpenBooking }: EventCategoriesProps) => {
         },
         {
           name: 'Corporate',
-          price: 'ab 1.175€',
+          price: 'ab 975€',
           features: [
             'DJ für bis zu 8 Stunden',
-            'Premium Soundsystem',
+            'Premium Soundsystem bis 150 Gäste',
             'Atmosphärische Beleuchtung',
             'Maßgeschneidertes Musikkonzept',
             '2 Mikrofone',
@@ -148,10 +154,10 @@ const EventCategories = ({ onOpenBooking }: EventCategoriesProps) => {
       packages: [
         {
           name: 'Vereinsfeier',
-          price: 'ab 600€',
+          price: 'ab 675€',
           features: [
             'DJ für bis zu 6 Stunden',
-            'Soundanlage',
+            'Soundanlage bis 60 Gäste',
             'Lichteffekte',
             'Vielseitiges Musikprogramm',
             'Flexible Musikwünsche'
@@ -159,14 +165,13 @@ const EventCategories = ({ onOpenBooking }: EventCategoriesProps) => {
         },
         {
           name: 'Jubiläumsfeier',
-          price: 'ab 900€',
+          price: 'ab 975€',
           features: [
             'DJ für bis zu 8 Stunden',
-            'Premium Sound',
+            'Premium Sound bis 150 Gäste',
             'Erweiterte Lichtshow',
             'Generationengerechte Musik',
-            'Mikrofon',
-            'Spiele & Animation'
+            'Mikrofon'
           ],
           popular: true
         }
@@ -183,10 +188,10 @@ const EventCategories = ({ onOpenBooking }: EventCategoriesProps) => {
           price: 'ab 800€',
           features: [
             'DJ für bis zu 7 Stunden',
-            'Soundanlage',
+            'Soundanlage bis zu 120 Gäste',
             'Lichtshow',
-            'Jugendgerechte Musikauswahl',
-            'Mikrofon für Reden'
+            'Mikrofon für Reden',
+            'DJ Pult'
           ]
         },
         {
@@ -194,12 +199,12 @@ const EventCategories = ({ onOpenBooking }: EventCategoriesProps) => {
           price: 'ab 1.200€',
           features: [
             'DJ für bis zu 9 Stunden',
-            'Premium Soundsystem',
+            'Premium Soundsystem bis zu 250 Gäste',
             'Professionelle Lichtshow',
             'Aktuelle Charts & Classics',
             '2 Mikrofone',
-            'Fotospiegel',
-            'Nebelmaschine'
+            'Nebelmaschine',
+            'DJ Pult'
           ],
           popular: true
         }
