@@ -67,36 +67,42 @@ const EventCategories = ({ onOpenBooking }: EventCategoriesProps) => {
       packages: [
         {
           name: 'Basic Party',
-          price: 'ab 500€',
+          price: 'ab 575€',
           features: [
             'DJ für bis zu 5 Stunden',
-            'Soundanlage',
+            'Persönliches Vorgespräch (bis 30 km)',
+            'Tontechnik für bis zu 50 Gäste',
             'Basis Lichteffekte',
-            'Musikwünsche der Gäste'
+            'Musikwünsche der Gäste',
+            'DJ Stand'
           ]
         },
         {
           name: 'Party Plus',
-          price: 'ab 750€',
+          price: 'ab 775€',
           features: [
-            'DJ für bis zu 7 Stunden',
-            'Premium Soundanlage',
+            'DJ für bis zu 8 Stunden',
+            'Persönliches Vorgespräch (bis 30 km)',
+            'Tontechnik für bis zu 80 Gäste',
             'Lichtshow',
             'Musikwünsche & Beratung',
-            'Mikrofon'
+            'Mikrofon',
+            'DJ Stand'
           ],
           popular: true
         },
         {
           name: 'XXL Party',
-          price: 'ab 1.100€',
+          price: 'ab 1.075€',
           features: [
-            'DJ für bis zu 10 Stunden',
-            'High-End Sound',
-            'Premium Lichtshow',
-            'Individuelle Musikauswahl',
-            'Nebelmaschine',
-            'Fotospiegel Option'
+            '10 Std. reine Musikspielzeit',
+            'Persönliches Vorgespräch (bis 30 km)',
+            'Tontechnik für bis zu 200 Gäste',
+            'Grundlicht (4er-Bar, zwei Lichteffekte)',
+            'Lichtshow',
+            'Musikwünsche & Beratung',
+            'Mikrofon',
+            'DJ Stand'
           ]
         }
       ]
