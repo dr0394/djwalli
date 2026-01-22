@@ -44,7 +44,7 @@ const Hero = ({ onOpenBooking, onOpenAbout }: HeroProps) => {
                       filter: 'drop-shadow(0 0 20px rgba(255, 108, 1, 0.4))'
                     }}
                   >
-                    mit DJ Walli Ihr Hochzeits & Event DJ aus Duisburg
+                    DJ Walli Ihr Hochzeits & Event DJ aus Duisburg
                     <span
                       className="absolute inset-0 -z-10"
                       style={{
