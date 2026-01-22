@@ -64,6 +64,32 @@ const Hero = ({ onOpenBooking, onOpenAbout }: HeroProps) => {
                 Lichttechnik und Eventtechnik für Hochzeiten, Geburtstage und Feiern aller Art
               </p>
 
+              <div className="lg:hidden relative my-8">
+                <div className="aspect-square rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800">
+                  <img
+                    src="https://www.djwalli.de/wp-content/uploads/2021/01/Ich-e1676569426840.jpg"
+                    alt="DJ Walli bei einer Veranstaltung"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="text-xl font-bold text-white">DJ Walli</div>
+                    <div className="text-sm text-gray-300">Walter Weilmünster</div>
+                    <button
+                      onClick={onOpenAbout}
+                      className="mt-3 text-sm font-semibold hover:text-orange-400 transition-colors flex items-center gap-2"
+                      style={{ color: '#FF6C01' }}
+                    >
+                      Wer bin ich? →
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="absolute inset-0 -z-10 blur-3xl opacity-20"
+                  style={{ background: 'radial-gradient(circle, rgba(255, 108, 1, 0.3), transparent)' }}
+                />
+              </div>
+
               <div className="space-y-4 pt-4">
                 {[
                   'Fast 40 Jahre Erfahrung',
@@ -121,7 +147,7 @@ const Hero = ({ onOpenBooking, onOpenAbout }: HeroProps) => {
 
             </div>
 
-            <div className="relative lg:block">
+            <div className="relative hidden lg:block">
               <div className="aspect-square rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800">
                 <img
                   src="https://www.djwalli.de/wp-content/uploads/2021/01/Ich-e1676569426840.jpg"
