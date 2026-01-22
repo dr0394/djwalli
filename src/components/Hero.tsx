@@ -2,7 +2,7 @@ import React from 'react'
 import { Check } from 'lucide-react'
 
 interface HeroProps {
-  onOpenBooking: () => void
+  onOpenBooking: (eventType?: string) => void
   onOpenAbout?: () => void
 }
 

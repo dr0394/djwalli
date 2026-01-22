@@ -2,7 +2,7 @@ import React from 'react'
 import { Camera, Sparkles, Image, Gift } from 'lucide-react'
 
 interface PhotoboothSectionProps {
-  onOpenBooking: () => void
+  onOpenBooking: (eventType?: string) => void
 }
 
 const PhotoboothSection = ({ onOpenBooking }: PhotoboothSectionProps) => {

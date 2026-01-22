@@ -13,7 +13,7 @@ interface EventPackageModalProps {
   onClose: () => void
   eventType: string
   packages: Package[]
-  onOpenBooking: () => void
+  onOpenBooking: (eventType?: string) => void
 }
 
 const EventPackageModal = ({ isOpen, onClose, eventType, packages, onOpenBooking }: EventPackageModalProps) => {
@@ -100,7 +100,7 @@ const EventPackageModal = ({ isOpen, onClose, eventType, packages, onOpenBooking
                   <div className="space-y-2">
                     <button
                       onClick={() => {
-                        onOpenBooking()
+                        onOpenBooking(eventType)
                         onClose()
                       }}
                       className="w-full py-3 rounded-lg font-bold text-sm uppercase tracking-wide transition-all duration-300 border-2"

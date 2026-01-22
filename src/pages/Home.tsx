@@ -14,7 +14,7 @@ import FAQ from '../components/FAQ'
 import Contact from '../components/Contact'
 
 interface HomeProps {
-  onOpenBooking: () => void
+  onOpenBooking: (eventType?: string) => void
   onOpenAbout?: () => void
 }
 

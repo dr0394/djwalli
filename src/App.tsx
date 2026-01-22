@@ -17,6 +17,17 @@ function App() {
   const [showCookieSettings, setShowCookieSettings] = useState(false)
   const [showBookingForm, setShowBookingForm] = useState(false)
   const [showAboutModal, setShowAboutModal] = useState(false)
+  const [preselectedEventType, setPreselectedEventType] = useState<string | undefined>(undefined)
+
+  const openBookingForm = (eventType?: string) => {
+    setPreselectedEventType(eventType)
+    setShowBookingForm(true)
+  }
+
+  const closeBookingForm = () => {
+    setShowBookingForm(false)
+    setPreselectedEventType(undefined)
+  }
 
   return (
     <BrowserRouter>
@@ -29,11 +40,11 @@ function App() {
         <div className="relative z-10">
           <ScrollToTop />
           <Navigation
-            onOpenBooking={() => setShowBookingForm(true)}
+            onOpenBooking={() => openBookingForm()}
             onOpenAbout={() => setShowAboutModal(true)}
           />
           <Routes>
-            <Route path="/" element={<Home onOpenBooking={() => setShowBookingForm(true)} onOpenAbout={() => setShowAboutModal(true)} />} />
+            <Route path="/" element={<Home onOpenBooking={openBookingForm} onOpenAbout={() => setShowAboutModal(true)} />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/agb" element={<AGB />} />
@@ -43,7 +54,8 @@ function App() {
 
         <MultiStepContactForm
           isOpen={showBookingForm}
-          onClose={() => setShowBookingForm(false)}
+          onClose={closeBookingForm}
+          preselectedEventType={preselectedEventType}
         />
         <AboutModal
           isOpen={showAboutModal}

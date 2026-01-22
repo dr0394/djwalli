@@ -2,7 +2,7 @@ import React from 'react'
 import { MessageCircle, Calendar, PartyPopper } from 'lucide-react'
 
 interface ProcessStepsProps {
-  onOpenBooking: () => void
+  onOpenBooking: (eventType?: string) => void
 }
 
 const ProcessSteps = ({ onOpenBooking }: ProcessStepsProps) => {

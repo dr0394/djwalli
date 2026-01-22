@@ -3,7 +3,7 @@ import { Heart, Cake, Briefcase, Users, GraduationCap, Calendar } from 'lucide-r
 import EventPackageModal from './EventPackageModal'
 
 interface EventCategoriesProps {
-  onOpenBooking: () => void
+  onOpenBooking: (eventType?: string) => void
 }
 
 const EventCategories = ({ onOpenBooking }: EventCategoriesProps) => {

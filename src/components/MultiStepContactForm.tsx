@@ -4,6 +4,7 @@ import { X, ChevronRight, ChevronLeft, Check, User, Calendar, Music, MessageSqua
 interface MultiStepContactFormProps {
   isOpen: boolean
   onClose: () => void
+  preselectedEventType?: string
 }
 
 interface FormData {
@@ -14,28 +15,26 @@ interface FormData {
   event_date: string
   guest_count: string
   location: string
-  services: string[]
-  budget: string
+  hours: string
   message: string
 }
 
-const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) => {
+const MultiStepContactForm = ({ isOpen, onClose, preselectedEventType }: MultiStepContactFormProps) => {
   const [currentStep, setCurrentStep] = useState(1)
   const [showSummary, setShowSummary] = useState(false)
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
-    event_type: '',
+    event_type: preselectedEventType || '',
     event_date: '',
     guest_count: '',
     location: '',
-    services: [],
-    budget: '',
+    hours: '',
     message: ''
   })
 
-  const totalSteps = 3
+  const totalSteps = 2
 
   const eventTypes = [
     'Hochzeit',
@@ -47,33 +46,11 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
     'Sonstiges'
   ]
 
-  const availableServices = [
-    'DJ Service',
-    'Lichttechnik',
-    'Tontechnik',
-    'Videografie',
-    'Fotografie',
-    'Equipment-Verleih'
-  ]
-
-  const budgetOptions = [
-    'bis 500€',
-    '500€ - 1.000€',
-    '1.000€ - 2.000€',
-    '2.000€ - 5.000€',
-    'über 5.000€'
-  ]
-
   const generateMessageText = () => {
     let text = `Hallo DJ Walli,\n\n`
     text += `ich interessiere mich für Ihre Services und möchte folgende Anfrage stellen:\n\n`
 
-    text += `📋 KONTAKTDATEN\n`
-    text += `Name: ${formData.name}\n`
-    text += `Email: ${formData.email}\n`
-    if (formData.phone) text += `Telefon: ${formData.phone}\n`
-
-    text += `\n🎉 EVENT DETAILS\n`
+    text += `🎉 EVENT DETAILS\n`
     if (formData.event_type) text += `Art: ${formData.event_type}\n`
     if (formData.event_date) {
       const date = new Date(formData.event_date)
@@ -81,18 +58,12 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
     }
     if (formData.guest_count) text += `Gäste: ca. ${formData.guest_count} Personen\n`
     if (formData.location) text += `Ort: ${formData.location}\n`
+    if (formData.hours) text += `Dauer: ${formData.hours} Stunden\n`
 
-    if (formData.services.length > 0) {
-      text += `\n🎵 GEWÜNSCHTE SERVICES\n`
-      formData.services.forEach(service => {
-        text += `• ${service}\n`
-      })
-    }
-
-    if (formData.budget) {
-      text += `\n💰 BUDGET\n`
-      text += `${formData.budget}\n`
-    }
+    text += `\n📋 KONTAKTDATEN\n`
+    text += `Name: ${formData.name}\n`
+    text += `Email: ${formData.email}\n`
+    if (formData.phone) text += `Telefon: ${formData.phone}\n`
 
     if (formData.message) {
       text += `\n📝 WEITERE INFORMATIONEN\n`
@@ -119,17 +90,8 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
     window.open(`mailto:info@djwalli.de?subject=${subject}&body=${body}`, '_blank')
   }
 
-  const updateFormData = (field: keyof FormData, value: string | string[]) => {
+  const updateFormData = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
-  }
-
-  const toggleService = (service: string) => {
-    setFormData(prev => ({
-      ...prev,
-      services: prev.services.includes(service)
-        ? prev.services.filter(s => s !== service)
-        : [...prev.services, service]
-    }))
   }
 
   const handleComplete = () => {
@@ -143,12 +105,11 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
       name: '',
       email: '',
       phone: '',
-      event_type: '',
+      event_type: preselectedEventType || '',
       event_date: '',
       guest_count: '',
       location: '',
-      services: [],
-      budget: '',
+      hours: '',
       message: ''
     })
     onClose()
@@ -157,11 +118,9 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
   const canProceed = () => {
     switch (currentStep) {
       case 1:
-        return formData.name && formData.email
-      case 2:
         return formData.event_type
-      case 3:
-        return true
+      case 2:
+        return formData.name && formData.email
       default:
         return false
     }
@@ -183,8 +142,8 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
 
   if (!isOpen) return null
 
-  const stepIcons = [User, Calendar, Music]
-  const StepIcon = stepIcons[currentStep - 1] || Music
+  const stepIcons = [Calendar, User]
+  const StepIcon = stepIcons[currentStep - 1] || Calendar
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
@@ -322,62 +281,15 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-                  {currentStep === 1 ? 'Ihre Kontaktdaten' :
-                   currentStep === 2 ? 'Event Details' :
-                   'Services & Budget'}
+                  {currentStep === 1 ? 'Event Details' : 'Ihre Kontaktdaten'}
                 </h2>
                 <p className="text-sm sm:text-base text-gray-300/80">
-                  {currentStep === 1 ? 'Wie können wir Sie erreichen?' :
-                   currentStep === 2 ? 'Erzählen Sie uns von Ihrem Event' :
-                   'Fast geschafft! Was benötigen Sie?'}
+                  {currentStep === 1 ? 'Erzählen Sie uns von Ihrem Event' : 'Wie können wir Sie erreichen?'}
                 </p>
               </div>
 
               <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
                 {currentStep === 1 && (
-                  <>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Name *
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => updateFormData('name', e.target.value)}
-                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors text-sm sm:text-base"
-                        placeholder="Ihr vollständiger Name"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => updateFormData('email', e.target.value)}
-                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors text-sm sm:text-base"
-                        placeholder="ihre@email.de"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Telefon
-                      </label>
-                      <input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => updateFormData('phone', e.target.value)}
-                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors text-sm sm:text-base"
-                        placeholder="+49 123 456789"
-                      />
-                    </div>
-                  </>
-                )}
-
-                {currentStep === 2 && (
                   <>
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-3">
@@ -437,63 +349,61 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
                         />
                       </div>
                     </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Wie viele Stunden?
+                      </label>
+                      <input
+                        type="number"
+                        value={formData.hours}
+                        onChange={(e) => updateFormData('hours', e.target.value)}
+                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors text-sm sm:text-base"
+                        placeholder="z.B. 4"
+                        min="1"
+                      />
+                    </div>
                   </>
                 )}
 
-                {currentStep === 3 && (
+                {currentStep === 2 && (
                   <>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-3">
-                        Services auswählen (optional)
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Name *
                       </label>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-                        {availableServices.map((service) => (
-                          <button
-                            key={service}
-                            type="button"
-                            onClick={() => toggleService(service)}
-                            className={`px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 text-xs sm:text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
-                              formData.services.includes(service)
-                                ? 'border-orange-500 bg-orange-500/20 text-white'
-                                : 'border-slate-700 bg-slate-800/30 text-gray-300 hover:border-slate-600'
-                            }`}
-                          >
-                            <div
-                              className={`w-4 h-4 sm:w-5 sm:h-5 rounded border-2 flex items-center justify-center flex-shrink-0 ${
-                                formData.services.includes(service)
-                                  ? 'border-orange-500 bg-orange-500'
-                                  : 'border-slate-600'
-                              }`}
-                            >
-                              {formData.services.includes(service) && (
-                                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-                              )}
-                            </div>
-                            <span className="text-left">{service}</span>
-                          </button>
-                        ))}
-                      </div>
+                      <input
+                        type="text"
+                        value={formData.name}
+                        onChange={(e) => updateFormData('name', e.target.value)}
+                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors text-sm sm:text-base"
+                        placeholder="Ihr vollständiger Name"
+                        required
+                      />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-3">
-                        Budget (optional)
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Email *
                       </label>
-                      <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                        {budgetOptions.map((option) => (
-                          <button
-                            key={option}
-                            type="button"
-                            onClick={() => updateFormData('budget', option)}
-                            className={`px-3 py-2 sm:px-4 sm:py-3 rounded-lg border-2 text-xs sm:text-sm font-medium transition-all duration-300 ${
-                              formData.budget === option
-                                ? 'border-orange-500 bg-orange-500/20 text-white'
-                                : 'border-slate-700 bg-slate-800/30 text-gray-300 hover:border-slate-600'
-                            }`}
-                          >
-                            {option}
-                          </button>
-                        ))}
-                      </div>
+                      <input
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => updateFormData('email', e.target.value)}
+                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors text-sm sm:text-base"
+                        placeholder="ihre@email.de"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Telefon
+                      </label>
+                      <input
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => updateFormData('phone', e.target.value)}
+                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors text-sm sm:text-base"
+                        placeholder="+49 123 456789"
+                      />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Music, Lightbulb, Speaker, X, Check } from 'lucide-react'
 
 interface EquipmentRentalProps {
-  onOpenBooking: () => void
+  onOpenBooking: (eventType?: string) => void
 }
 
 interface EquipmentItem {

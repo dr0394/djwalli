@@ -2,7 +2,7 @@ import React from 'react'
 import { AlertCircle, CheckCircle } from 'lucide-react'
 
 interface ProblemSolutionProps {
-  onOpenBooking: () => void
+  onOpenBooking: (eventType?: string) => void
 }
 
 const ProblemSolution = ({ onOpenBooking }: ProblemSolutionProps) => {

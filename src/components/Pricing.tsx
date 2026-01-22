@@ -2,7 +2,7 @@ import React from 'react'
 import { Check, Sparkles, ArrowRight } from 'lucide-react'
 
 interface PricingProps {
-  onOpenBooking?: () => void
+  onOpenBooking?: (eventType?: string) => void
 }
 
 const Pricing = ({ onOpenBooking }: PricingProps) => {
