@@ -33,23 +33,23 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
       />
 
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-2xl shadow-2xl border animate-in zoom-in-95 duration-300"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl border animate-in zoom-in-95 duration-300"
         style={{
           borderColor: 'rgba(255, 108, 1, 0.2)',
           boxShadow: '0 0 80px rgba(255, 108, 1, 0.15)'
         }}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,108,1,0.08)_0%,_transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-50/30 to-transparent pointer-events-none rounded-2xl" />
 
         <button
           onClick={onClose}
           className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
           style={{
             backgroundColor: 'rgba(255, 108, 1, 0.1)',
-            border: '1px solid rgba(255, 108, 1, 0.2)'
+            border: '1px solid rgba(255, 108, 1, 0.3)'
           }}
         >
-          <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
         </button>
 
         <div className="relative p-6 sm:p-8 md:p-12">
@@ -64,10 +64,10 @@ const MultiStepContactForm = ({ isOpen, onClose }: MultiStepContactFormProps) =>
                 Kontaktanfrage
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-3">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-3">
               Lassen Sie uns sprechen
             </h2>
-            <p className="text-gray-300/90 text-lg">
+            <p className="text-gray-700 text-lg">
               Füllen Sie das Formular aus und wir melden uns zeitnah bei Ihnen
             </p>
           </div>
