@@ -67,7 +67,7 @@ const Hero = ({ onOpenBooking, onOpenAbout }: HeroProps) => {
               <div className="lg:hidden relative my-8">
                 <div className="aspect-square rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800">
                   <img
-                    src="https://www.djwalli.de/wp-content/uploads/2021/01/Ich-e1676569426840.jpg"
+                    src="https://i.imgur.com/NdN6NER.jpeg"
                     alt="DJ Walli bei einer Veranstaltung"
                     className="w-full h-full object-cover"
                   />
@@ -150,7 +150,7 @@ const Hero = ({ onOpenBooking, onOpenAbout }: HeroProps) => {
             <div className="relative hidden lg:block">
               <div className="aspect-square rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800">
                 <img
-                  src="https://www.djwalli.de/wp-content/uploads/2021/01/Ich-e1676569426840.jpg"
+                  src="https://i.imgur.com/NdN6NER.jpeg"
                   alt="DJ Walli bei einer Veranstaltung"
                   className="w-full h-full object-cover"
                 />
