@@ -6,12 +6,32 @@ const Gallery = () => {
 
   const images = [
     {
-      url: 'https://i.imgur.com/2rdJkc6.png',
+      url: 'https://i.imgur.com/ApFTPg9.jpeg',
       title: 'Event Impression',
       category: 'Event'
     },
     {
-      url: 'https://i.imgur.com/hSQi5z5.jpeg',
+      url: 'https://i.imgur.com/GqrSWXd.jpeg',
+      title: 'Event Impression',
+      category: 'Event'
+    },
+    {
+      url: 'https://i.imgur.com/ZUZE93r.jpeg',
+      title: 'Event Impression',
+      category: 'Event'
+    },
+    {
+      url: 'https://i.imgur.com/P5pPsxD.jpeg',
+      title: 'Event Impression',
+      category: 'Event'
+    },
+    {
+      url: 'https://i.imgur.com/NdN6NER.jpeg',
+      title: 'Event Impression',
+      category: 'Event'
+    },
+    {
+      url: 'https://i.imgur.com/TESQJS4.jpeg',
       title: 'Event Impression',
       category: 'Event'
     }
@@ -53,17 +73,17 @@ const Gallery = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {images.map((image, index) => (
             <div
               key={index}
               onClick={() => setSelectedImage(index)}
-              className="group relative overflow-hidden rounded-lg cursor-pointer border border-white/10 hover:border-orange-500/50 transition-all duration-500"
+              className="group relative overflow-hidden rounded-lg cursor-pointer border border-white/10 hover:border-orange-500/50 transition-all duration-500 aspect-square"
             >
               <img
                 src={image.url}
                 alt={image.title}
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />

@@ -9,7 +9,7 @@ const AboutDJWalli = () => {
           <div className="relative">
             <div className="aspect-square rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800">
               <img
-                src="https://www.djwalli.de/wp-content/uploads/2021/01/Ich-e1676569426840.jpg"
+                src="https://i.imgur.com/NdN6NER.jpeg"
                 alt="Walter Weilmünster - DJ Walli"
                 className="w-full h-full object-cover"
               />
