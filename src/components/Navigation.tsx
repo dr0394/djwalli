@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 interface NavigationProps {
   onOpenBooking: (eventType?: string) => void
@@ -9,6 +9,16 @@ interface NavigationProps {
 
 const Navigation = ({ onOpenBooking, onOpenAbout }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      navigate('/')
+    }
+  }
 
   const scrollTo = (id: string) => {
     const element = document.getElementById(id)
@@ -22,13 +32,13 @@ const Navigation = ({ onOpenBooking, onOpenAbout }: NavigationProps) => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
+          <button onClick={handleLogoClick} className="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
             <img
               src="https://i.imgur.com/q2A2PQh.png"
               alt="DJ Walli Logo"
               className="h-16 md:h-20 object-contain"
             />
-          </Link>
+          </button>
 
           <div className="hidden md:flex items-center space-x-6">
             <button onClick={() => scrollTo('hero')} className="text-white hover:text-orange-400 transition-colors text-sm uppercase tracking-wider">
