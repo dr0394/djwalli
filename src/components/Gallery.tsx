@@ -26,11 +26,6 @@ const Gallery = () => {
       category: 'Event'
     },
     {
-      url: 'https://i.imgur.com/NdN6NER.jpeg',
-      title: 'Event Impression',
-      category: 'Event'
-    },
-    {
       url: 'https://i.imgur.com/TESQJS4.jpeg',
       title: 'Event Impression',
       category: 'Event'
