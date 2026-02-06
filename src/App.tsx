@@ -33,7 +33,7 @@ function App() {
     <BrowserRouter>
       <div className="min-h-screen relative bg-black">
         <div className="fixed inset-0 z-0">
-          <div className="absolute inset-0 bg-[url('https://plus.unsplash.com/premium_photo-1708589337397-ad21d307bb9c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZGp8ZW58MHx8MHx8fDA%3D')] bg-cover bg-center bg-no-repeat" />
+          <div className="absolute inset-0 bg-[url('https://i.imgur.com/P5pPsxD.jpeg')] bg-cover bg-center bg-no-repeat" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/75 to-black/85" />
         </div>
 
