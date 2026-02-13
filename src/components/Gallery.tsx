@@ -6,22 +6,42 @@ const Gallery = () => {
 
   const images = [
     {
-      url: 'https://i.imgur.com/ApFTPg9.jpeg',
+      url: 'https://i.imgur.com/QDNDDmn.jpeg',
       title: 'Event Impression',
       category: 'Event'
     },
     {
-      url: 'https://i.imgur.com/GqrSWXd.jpeg',
+      url: 'https://i.imgur.com/J5adCai.jpeg',
       title: 'Event Impression',
       category: 'Event'
     },
     {
-      url: 'https://i.imgur.com/ZUZE93r.jpeg',
+      url: 'https://i.imgur.com/GXjMb83.jpeg',
       title: 'Event Impression',
       category: 'Event'
     },
     {
-      url: 'https://i.imgur.com/P5pPsxD.jpeg',
+      url: 'https://i.imgur.com/g6lPwLK.jpeg',
+      title: 'Event Impression',
+      category: 'Event'
+    },
+    {
+      url: 'https://i.imgur.com/wmI9pAY.jpeg',
+      title: 'Event Impression',
+      category: 'Event'
+    },
+    {
+      url: 'https://i.imgur.com/916Dzzk.jpeg',
+      title: 'Event Impression',
+      category: 'Event'
+    },
+    {
+      url: 'https://i.imgur.com/0QCrBZS.jpeg',
+      title: 'Event Impression',
+      category: 'Event'
+    },
+    {
+      url: 'https://i.imgur.com/4uWFIm8.jpeg',
       title: 'Event Impression',
       category: 'Event'
     },
