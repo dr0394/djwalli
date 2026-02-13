@@ -33,7 +33,7 @@ function App() {
     <BrowserRouter>
       <div className="min-h-screen relative bg-black">
         <div className="fixed inset-0 z-0">
-          <div className="absolute inset-0 bg-[url('https://i.imgur.com/P5pPsxD.jpeg')] bg-cover bg-center bg-no-repeat" />
+          <div className="absolute inset-0 bg-[url('https://i.imgur.com/BNqQxmL.jpeg')] bg-cover bg-center bg-no-repeat" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/75 to-black/85" />
         </div>
 
