@@ -54,7 +54,7 @@ const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                   style={{ borderColor: 'rgba(255, 108, 1, 0.3)' }}
                 >
                   <img
-                    src="https://i.imgur.com/NdN6NER.jpeg"
+                    src="/PHOTO-2026-02-06-14-03-53.jpg"
                     alt="Walter Weilmünster - DJ Walli"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                   />

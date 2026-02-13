@@ -67,7 +67,7 @@ const Hero = ({ onOpenBooking, onOpenAbout }: HeroProps) => {
               <div className="lg:hidden relative my-8">
                 <div className="aspect-square rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800">
                   <img
-                    src="https://i.imgur.com/NdN6NER.jpeg"
+                    src="/PHOTO-2026-02-06-14-03-53.jpg"
                     alt="DJ Walli bei einer Veranstaltung"
                     className="w-full h-full object-cover"
                   />
@@ -150,7 +150,7 @@ const Hero = ({ onOpenBooking, onOpenAbout }: HeroProps) => {
             <div className="relative hidden lg:block">
               <div className="aspect-square rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800">
                 <img
-                  src="https://i.imgur.com/NdN6NER.jpeg"
+                  src="/PHOTO-2026-02-06-14-03-53.jpg"
                   alt="DJ Walli bei einer Veranstaltung"
                   className="w-full h-full object-cover"
                 />
